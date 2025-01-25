@@ -8,7 +8,9 @@ export interface PageProps {
   }>;
 }
 
-export const generateStaticParams = () => ["1"];
+export async function generateStaticParams() {
+  return [{ id: "1" }];
+}
 
 export async function generateMetadata({
   params,
@@ -27,6 +29,8 @@ export async function generateMetadata({
 
 export default async function Page({ params }: PageProps) {
   const { id } = await params;
+
+  console.log("id", "id");
 
   return (
     <main>
